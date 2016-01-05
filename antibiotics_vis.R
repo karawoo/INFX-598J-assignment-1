@@ -50,7 +50,7 @@ ggplot(dat_long, aes(x = mic, y = bacteria, color = antibiotic)) +
   scale_x_log10() +
   facet_grid(gram.staining ~ ., scales = "free_y", labeller = relabeller) +
   ylab("Bacteria") +
-  xlab("Log 10 Minimum Inhibitory Concentration") +
+  xlab(expression(log("Minimum Inhibitory Concentration"))) +
   ggtitle("Antibiotic effectiveness by bacteria") +
   ggsave("figs/antibiotics_dot_plot.png", width = 10, height = 6)
 
