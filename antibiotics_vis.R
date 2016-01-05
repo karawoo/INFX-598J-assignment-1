@@ -28,7 +28,7 @@ dat_long$gram.staining <- factor(dat$gram.staining,
 ggplot(dat_long, aes(x = bacteria, y = 1/mic, fill = antibiotic)) +
   geom_bar(stat = "identity", position = "dodge") +
   theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
-  facet_grid(. ~ gram.staining, scales = "free_x", labeller = relabeller) +
+  facet_grid(. ~ gram.staining, scales = "free_x", labeller = label_value) +
   xlab("Bacteria") +
   ylab(expression(MIC^-1)) +
   ggtitle("Antibiotic effectiveness by bacteria") +
