@@ -49,6 +49,7 @@ ggplot(dat_long, aes(x = mic, y = bacteria, color = antibiotic)) +
   ylab("Bacteria") +
   xlab(expression(log("Minimum Inhibitory Concentration"))) +
   ggtitle("Antibiotic effectiveness by bacteria") +
+  theme_bw() +
   ggsave("figs/antibiotics_dot_plot.png", width = 10, height = 6)
 
 ## Better...
