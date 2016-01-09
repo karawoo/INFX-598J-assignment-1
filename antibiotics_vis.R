@@ -13,11 +13,10 @@ dat <- read.csv("antibiotics_data.csv", stringsAsFactors = TRUE)
 names(dat) <- tolower(names(dat))       # make column names lower case
 
 ## Reshape data
-dat_long <- dat %>%
-  gather(antibiotic, mic, -gram.staining, -bacteria)
+dat_long <- gather(data = dat, key = antibiotic, value = mic, -gram.staining, -bacteria)
 
 ## Change labelling of gram staining facets
-dat_long$gram.staining <- factor(dat$gram.staining,
+dat_long$gram.staining <- factor(dat_long$gram.staining,
                                  labels = c("Gram-negative bacteria",
                                             "Gram-positive bacteria"))
 
