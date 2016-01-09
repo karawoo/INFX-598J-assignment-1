@@ -19,21 +19,6 @@ dat_long$gram.staining <- factor(dat_long$Gram.Staining,
                                  labels = c("Gram-negative bacteria",
                                             "Gram-positive bacteria"))
 
-##################################
-####  Side-by-side bar graph  ####
-##################################
-
-ggplot(dat_long, aes(x = Bacteria, y = 1/mic, fill = Antibiotic)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
-  facet_grid(. ~ gram.staining, scales = "free_x", labeller = label_value) +
-  xlab("Bacteria") +
-  ylab(expression(MIC^-1)) +
-  ggtitle("Antibiotic effectiveness by bacteria") +
-  ggsave("figs/antibiotics_bar_chart.png", width = 10, height = 6)
-
-## This is no good, the scale is all a mess
-
 
 ####################
 ####  Dot plot  ####
