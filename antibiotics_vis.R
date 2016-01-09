@@ -10,13 +10,12 @@ library("wesanderson")
 
 ## Load data
 dat <- read.csv("antibiotics_data.csv", stringsAsFactors = TRUE)
-names(dat) <- tolower(names(dat))       # make column names lower case
 
 ## Reshape data
-dat_long <- gather(data = dat, key = antibiotic, value = mic, -gram.staining, -bacteria)
+dat_long <- gather(data = dat, key = Antibiotic, value = mic, -Gram.Staining, -Bacteria)
 
 ## Change labelling of gram staining facets
-dat_long$gram.staining <- factor(dat_long$gram.staining,
+dat_long$gram.staining <- factor(dat_long$Gram.Staining,
                                  labels = c("Gram-negative bacteria",
                                             "Gram-positive bacteria"))
 
@@ -24,7 +23,7 @@ dat_long$gram.staining <- factor(dat_long$gram.staining,
 ####  Side-by-side bar graph  ####
 ##################################
 
-ggplot(dat_long, aes(x = bacteria, y = 1/mic, fill = antibiotic)) +
+ggplot(dat_long, aes(x = Bacteria, y = 1/mic, fill = Antibiotic)) +
   geom_bar(stat = "identity", position = "dodge") +
   theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
   facet_grid(. ~ gram.staining, scales = "free_x", labeller = label_value) +
@@ -40,7 +39,7 @@ ggplot(dat_long, aes(x = bacteria, y = 1/mic, fill = antibiotic)) +
 ####  Dot plot  ####
 ####################
 
-ggplot(dat_long, aes(x = mic, y = bacteria, color = antibiotic)) +
+ggplot(dat_long, aes(x = mic, y = Bacteria, color = Antibiotic)) +
   geom_point(size = 5, alpha = 0.7) +
   scale_color_manual(values = wes_palette("Darjeeling")) + 
   scale_x_log10() +
