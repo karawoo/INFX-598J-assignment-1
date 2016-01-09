@@ -19,7 +19,6 @@ dat_long$gram.staining <- factor(dat_long$Gram.Staining,
                                  labels = c("Gram-negative bacteria",
                                             "Gram-positive bacteria"))
 
-
 ####################
 ####  Dot plot  ####
 ####################
@@ -27,13 +26,11 @@ dat_long$gram.staining <- factor(dat_long$Gram.Staining,
 ggplot(dat_long, aes(x = mic, y = Bacteria, color = Antibiotic)) +
   geom_point(size = 5, alpha = 0.7) +
   scale_color_manual(values = wes_palette("Darjeeling")) + 
-  scale_x_log10() +
+  scale_x_log10(labels = scales::comma) +
   facet_grid(gram.staining ~ ., scales = "free_y", labeller = label_value) +
   ylab("Bacteria") +
   xlab(expression(log("Minimum Inhibitory Concentration"))) +
   ggtitle("Antibiotic effectiveness by bacteria") +
   theme_bw() +
   ggsave("figs/antibiotics_dot_plot.png", width = 10, height = 6)
-
-## Better...
  
