@@ -1,0 +1,19 @@
+#+OPTIONS: toc:nil
+#+LaTeX_CLASS: hw
+#+TITLE: Assignment 1: Antibiotics Visualization
+#+AUTHOR: Bhalchandra Shirole & Kara Woo
+#+DATE: 11 January 2016
+#+LATEX_HEADER: \course{INFX 598J}
+
+We chose to present minimum inhibitory concentration (MIC) along the x axis on a log scale. Position is the most effective visual variable for quantitative information, so we chose to use position to represent some of the most important information (antibiotic effectivess). The data is presented on a log scale to better differentiate points that have similar MIC, given that the range of values in the data spans many orders of magnitude. Tick marks were added to the axis to alert the viewer of the transformed scale.
+
+We differentiated the bacteria with y position (again using the most perceptually effective visual variable to map the important distinctions of bacteria). We also used vertical position to group gram-negative and gram-positive bacteria together. The grouping of gram-negative and gram-positive bacteria allows the viewer to compare patterns of antibiotic effectiveness between these groups.  
+
+Hue is an effective visual variable for nominal data, so we used it to differentiate the three antibiotics. Because some points overlap, we used semi-transparent hues so that no points would be obscured.
+
+The graph we presented in class was made with R (specifically the ggplot2 package). We also implemented an equivalent version in Tableau.
+
+
+
+
+
